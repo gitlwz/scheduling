@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#aa{
+				display: flex;
+			}
+		</style>
+	</head>
+	<body>
+		<input />
+		<div id="aa">
+			<ul id="test">
+			</ul>
+			<ul id="test1">
+			</ul>
+			<ul id="test2">
+				
+			</ul>
+			<ul id="test3">
+				
+			</ul>
+			<ul id="test4">
+				
+			</ul>
+			<ul id="test5">
+				
+			</ul>
+		</div>
+		
+		
+		
+		<script src="./p.js"></script>
+		<script>
+			let i=0;
+			let _index = 10000
+			let div0 = document.getElementById("test")
+			let div1 = document.getElementById("test1")
+			let div2 = document.getElementById("test2")
+			let div3 = document.getElementById("test3")
+			let div4 = document.getElementById("test4")
+			let div5 = document.getElementById("test5")
+			let pub = new Pubsub();
+			
+			
+			setInterval(function(){
+				pub.publishFunction("token")
+			},10)
+			
+			pub.subscribe("token",function(){
+				let text = "";
+				for(let index = 0 ;index< _index; index++){
+					text += `<li>${i+index}</li>`
+				}
+				i++
+				div0.innerHTML = text;
+			})
+			pub.subscribe("token",function(){
+				let text = "";
+				for(let index = 0 ;index< _index; index++){
+					text += `<li>${i+index}</li>`
+				}
+				i++
+				div1.innerHTML = text;
+			})
+			pub.subscribe("token",function(){
+				let text = "";
+				for(let index = 0 ;index< _index; index++){
+					text += `<li>${i+index}</li>`
+				}
+				i++
+				div2.innerHTML = text;
+			})
+			pub.subscribe("token",function(){
+				let text = "";
+				for(let index = 0 ;index< _index; index++){
+					text += `<li>${i+index}</li>`
+				}
+				i++
+				div3.innerHTML = text;
+			})
+			pub.subscribe("token",function(){
+				let text = "";
+				for(let index = 0 ;index< _index; index++){
+					text += `<li>${i+index}</li>`
+				}
+				i++
+				div4.innerHTML = text;
+			})
+			pub.subscribe("token",function(){
+				let text = "";
+				for(let index = 0 ;index< _index; index++){
+					text += `<li>${i+index}</li>`
+				}
+				i++
+				div5.innerHTML = text;
+			})
+		</script>
+	</body>
+</html>
