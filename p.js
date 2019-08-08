@@ -40,6 +40,16 @@ Pubsub.prototype.publishFunction = function(message, data) {
 	data = data === undefined ? "" : data;
 	this.createFunction(message, data);
 }
+
+Pubsub.prototype.publishTo = function(message, data) {
+	if(this.messages.hasOwnProperty(message)){
+		let m = this.messages[message];
+		for (s in m) {
+			m[s](message, data);
+		}
+	}
+}
+
 Pubsub.prototype.createFunction = function(message,data){
 	if(this.messages.hasOwnProperty(message)){
 		let m = this.messages[message];
